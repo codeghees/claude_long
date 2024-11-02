@@ -1,0 +1,7 @@
+analysis_sessions/
+interactions/
+frontend/src/node_modules
+frontend/src/package-lock.json
+__pycache__/
+.env
+analysis_report.html
