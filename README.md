@@ -1,153 +1,136 @@
 # Claude Long-Running Analysis Platform
 
-A platform for conducting extended, iterative analysis tasks using Claude AI, with support for self-steering system prompts and persistent session management.
+A powerful platform for conducting sophisticated, long-running analysis tasks using Claude AI, featuring dynamic system prompts and persistent session tracking.
 
-## Features
+## Key Features
 
-- 🤖 Long-running Claude AI analysis sessions
-- 🔄 Iterative thinking with configurable iterations
-- 🎯 Dynamic system prompt updates during analysis
-- ⏱️ Rate limit protection with 10s timeouts
-- 📊 Real-time progress tracking
-- 💾 Persistent session storage
-- 📝 Markdown-formatted responses
-- 🔍 Detailed analysis history
+- 🧠 Advanced iterative analysis powered by Claude AI
+- 🔄 Configurable analysis iterations with fine-grained control
+- 🎯 Dynamic system prompts that evolve during analysis
+- ⚡️ Smart rate limiting with 10s cooldowns
+- 📊 Real-time progress monitoring
+- 💾 Automatic session persistence
+- 📝 Rich Markdown output
+- 🔍 Comprehensive analysis history
 
-## Architecture
+## Technical Stack
 
-- Backend: FastAPI + Claude API
-- Frontend: React with real-time updates
-- Storage: File-based session persistence
-- Rate Limiting: 10-second intervals between API calls
+- **Backend**: FastAPI for high-performance async API
+- **AI Engine**: Claude API integration
+- **Frontend**: React with real-time updates
+- **Storage**: File-based session management
+- **Rate Limiting**: 10-second interval throttling
 
-## Prerequisites
+## Getting Started
+
+### Prerequisites
 
 - Python 3.8+
 - Node.js 14+
 - Anthropic API key
 - npm or yarn
 
-## Installation
+### Setup
 
-1. Clone the repository:
+1. Clone repository:
    ```bash
    git clone https://github.com/yourusername/claude-long.git
    cd claude-long
    ```
 
-2. Create and activate virtual environment (optional but recommended):
+2. Set up environment:
    ```bash
    python -m venv venv
-   source venv/bin/activate # On Windows: venv\Scripts\activate
+   source venv/bin/activate  # Windows: venv\Scripts\activate
+   pip install -r requirements.txt
    ```
 
-3. Install dependencies:
+3. Install frontend:
    ```bash
-   pip install -r requirements.txt
    cd frontend
    npm install
    ```
 
-4. Set up environment variables:
-   Create a `.env` file in the root directory with:
+4. Configure `.env`:
    ```
    ANTHROPIC_API_KEY=your_api_key_here
    ```
 
-## Usage
+### Launch
 
-1. Start the backend server:
+1. Backend:
    ```bash
    uvicorn main:app --reload --port 8000
    ```
 
-2. Start the frontend development server:
+2. Frontend:
    ```bash
    cd frontend
    npm start
    ```
 
-3. Access the application at `http://localhost:3000`
+Access at `http://localhost:3000`
 
 ## Usage
 
-1. **Starting an Analysis**
-   - Enter your analysis task in the main textarea
-   - Optionally provide an initial system prompt
-   - Click "Start Analysis" to begin
+### Analysis Workflow
 
-2. **Monitoring Progress**
-   - View real-time updates of the analysis
-   - Each iteration is timestamped and preserved
-   - Track Claude's thought process and conclusions
+1. **Start**
+   - Define objective
+   - Set initial prompts (optional)
+   - Launch analysis
 
-3. **Steering the Analysis**
-   - Update the system prompt at any time
-   - Each prompt update is recorded in the session history
-   - Use the "Process Next Iteration" button to trigger new analysis steps
+2. **Monitor**
+   - Track real-time progress
+   - Review iteration logs
+   - Follow reasoning process
 
-4. **Session Management**
-   - Sessions are automatically saved
-   - Access historical sessions using their ID
-   - All interactions are preserved for review
+3. **Control**
+   - Adjust system prompts
+   - Track prompt evolution
+   - Manage iterations
 
-## API Endpoints
+4. **Sessions**
+   - Automatic persistence
+   - Retrieve by ID
+   - Complete history
+
+## API Reference
 
 - `POST /start_analysis`
-  - Start a new analysis session
-  - Parameters: task, system_prompt (optional), iteration_count (optional)
+  - Start new session
+  - Parameters: task, system_prompt, iteration_count
 
 - `GET /analysis_status/{session_id}`
-  - Get current status and history of an analysis session
+  - Get session status and history
 
 - `POST /update_system_prompt`
-  - Update the system prompt for ongoing analysis
+  - Update active prompt
   - Parameters: session_id, new_prompt
 
 - `POST /process_iteration/{session_id}`
-  - Trigger the next iteration of analysis
+  - Trigger next iteration
 
 ## Best Practices
 
-1. **Rate Limiting**
-   - Respect the 10-second timeout between iterations
-   - Monitor API usage and adjust timeouts if needed
+- Respect 10-second cooldowns
+- Start with broad prompts
+- Document prompt changes
+- Save important session IDs
+- Export for documentation
 
-2. **System Prompts**
-   - Start with general prompts and let Claude specialize
-   - Use prompt updates to guide analysis direction
-   - Document prompt changes in session history
+## Development
 
-3. **Session Management**
-   - Keep session IDs for important analyses
-   - Review iteration history for insights
-   - Export sessions for documentation
+### Contributing
 
-## Contributing
+1. Fork repository
+2. Create feature branch
+3. Submit pull request
 
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
+### License
 
-## License
+MIT License - See LICENSE file
 
-MIT License - See LICENSE file for details
+### Support
 
-## Support
-
-For issues and feature requests, please use the GitHub issue tracker.
-
-## Project Structure
-claude_long/
-├── main.py # FastAPI backend
-├── requirements.txt # Python dependencies
-├── analysis_sessions/ # Session storage
-├── search/ # Analysis modules
-│ └── analyzer.py # Claude integration
-└── frontend/ # React frontend
-├── src/
-│ ├── App.js # Main application
-│ └── ...
-└── package.json
+Use [GitHub Issue Tracker](https://github.com/yourusername/claude-long/issues)
